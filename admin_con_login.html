@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Total - Admin Mundo Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #a8e063, #56ab2f);
+            margin: 0;
+            padding: 0;
+        }
+        #login-box, .panel {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+        }
+        #login-box {
+            width: 320px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-top: 80px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #43a047;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2e7d32;
+        }
+        .panel {
+            display: none;
+        }
+        .panel.active {
+            display: block;
+        }
+        nav {
+            background: #2e7d32;
+            padding: 10px;
+            text-align: center;
+        }
+        nav button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            background: white;
+            color: #2e7d32;
+        }
+        h1 {
+            color: #2e7d32;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-box">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="clave" placeholder="Contraseña">
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    
+    <nav id="nav-admin" style="display:none;">
+        <button onclick="mostrarPanel('productos')">Productos</button>
+        <button onclick="mostrarPanel('turnos')">Turnos</button>
+        <button onclick="mostrarPanel('rrhh')">Recursos Humanos</button>
+        <button onclick="mostrarPanel('balances')">Balances</button>
+    </nav>
+    <div id="main-panel" style="display:none;">
+        <nav id="nav-admin" style="display:none;">
+            <button onclick="mostrarPanel('productos')">Productos</button>
+            <button onclick="mostrarPanel('turnos')">Turnos</button>
+            <button onclick="mostrarPanel('rrhh')">Recursos Humanos</button>
+        </nav>
+
+        <div id="panel-productos" class="panel">
+            <h1>Administración de Productos</h1>
+            <table>
+                <thead><tr><th>Producto</th><th>Precio</th><th>Acción</th></tr></thead>
+                <tbody id="admin-productos"></tbody>
+            </table>
+        
+        </div>
+        <div id="panel-balances" class="panel">
+            <h1>Resumen Financiero - Mundo Express</h1>
+            <table>
+                <tr><th>Cuenta Bancaria</th><th>Saldo Actual</th></tr>
+                <tr><td>Bancolombia - Ahorros 1234567890</td><td>$42.850.000 COP</td></tr>
+                <tr><td>Nequi - 3001234567</td><td>$8.500.000 COP</td></tr>
+            </table>
+            <br>
+            <h2>Promedio de Ventas Mensuales</h2>
+            <p style="font-size:18px;">$156,000,000 COP / mes</p>
+            <h2>Últimas Ventas</h2>
+            <ul>
+                <li>Julio: $58.400.000 COP</li>
+                <li>Junio: $53.800.000 COP</li>
+                <li>Mayo: $56.300.000 COP</li>
+            </ul>
+        </div>
+
+        <div id="panel-turnos" class="panel">
+            <h1>Centro de Asignación de Turnos</h1>
+            <textarea placeholder="Ej: Turno mañana: Ana - Caja 1. Turno tarde: Pedro - Bodega."></textarea>
+            <button onclick="alert('Turno asignado exitosamente.')">Guardar Turno</button>
+        </div>
+
+        
+    <div id="panel-rrhh" class="panel">
+        <h1>Recursos Humanos</h1>
+        <h2>Nómina Total: $76,489,665 COP</h2>
+        <table>
+            <thead><tr><th>Nombre</th><th>Fecha de Ingreso</th><th>Fin de Contrato</th><th>Correo Profesional</th></tr></thead>
+            <tbody>
+                <tr><td>Laura Herrera</td><td>2023-05-21</td><td>2025-10-07</td><td>laura.ventas@supermarket.com</td></tr><tr><td>Andrés Martínez</td><td>2023-12-15</td><td>2025-06-10</td><td>andrés.caja@supermarket.com</td></tr><tr><td>Carlos Restrepo</td><td>2023-12-11</td><td>2025-04-27</td><td>carlos.bodega@supermarket.com</td></tr><tr><td>Juliana Cano</td><td>2023-01-06</td><td>2025-09-08</td><td>juliana.inventario@supermarket.com</td></tr><tr><td>David Pineda</td><td>2023-03-21</td><td>2025-03-23</td><td>david.marketing@supermarket.com</td></tr><tr><td>Sofía Valencia</td><td>2023-01-12</td><td>2025-07-20</td><td>sofía.caja@supermarket.com</td></tr><tr><td>Esteban López</td><td>2023-04-27</td><td>2025-05-15</td><td>esteban.tecnologia@supermarket.com</td></tr><tr><td>Mónica Ruiz</td><td>2023-06-10</td><td>2025-08-23</td><td>mónica.inventario@supermarket.com</td></tr><tr><td>Julián Castro</td><td>2023-09-08</td><td>2025-01-28</td><td>julián.logistica@supermarket.com</td></tr><tr><td>Carolina Rojas</td><td>2023-10-15</td><td>2025-03-22</td><td>carolina.compras@supermarket.com</td></tr><tr><td>Alejandro Torres</td><td>2023-02-06</td><td>2025-07-27</td><td>alejandro.sistemas@supermarket.com</td></tr><tr><td>Paula Mejía</td><td>2023-11-28</td><td>2025-03-21</td><td>paula.ventas@supermarket.com</td></tr><tr><td>Daniel Gómez</td><td>2023-08-15</td><td>2025-11-02</td><td>daniel.atencion@supermarket.com</td></tr><tr><td>Natalia Ramírez</td><td>2023-04-02</td><td>2025-02-24</td><td>natalia.rrhh@supermarket.com</td></tr><tr><td>Santiago Arias</td><td>2023-10-06</td><td>2025-06-11</td><td>santiago.seguridad@supermarket.com</td></tr><tr><td>Mariana Castaño</td><td>2023-02-25</td><td>2025-07-12</td><td>mariana.calidad@supermarket.com</td></tr><tr><td>Felipe Medina</td><td>2023-01-24</td><td>2025-05-05</td><td>felipe.facturacion@supermarket.com</td></tr><tr><td>Camila Restrepo</td><td>2023-02-16</td><td>2025-04-19</td><td>camila.rrhh@supermarket.com</td></tr><tr><td>Valeria Salazar</td><td>2023-08-15</td><td>2025-01-22</td><td>valeria.ventas@supermarket.com</td></tr><tr><td>Juan Esteban Vélez</td><td>2023-10-23</td><td>2025-08-04</td><td>juan.caja@supermarket.com</td></tr><tr><td>Isabela Marín</td><td>2023-07-13</td><td>2025-02-10</td><td>isabela.marketing@supermarket.com</td></tr><tr><td>Simón García</td><td>2023-03-13</td><td>2025-05-27</td><td>simón.logistica@supermarket.com</td></tr><tr><td>Tatiana Roldán</td><td>2023-05-01</td><td>2025-01-25</td><td>tatiana.compras@supermarket.com</td></tr><tr><td>Manuela Uribe</td><td>2023-01-08</td><td>2025-08-25</td><td>manuela.sistemas@supermarket.com</td></tr><tr><td>Lucas Morales</td><td>2023-08-18</td><td>2025-03-25</td><td>lucas.ventas@supermarket.com</td></tr><tr><td>Martín Londoño</td><td>2023-05-06</td><td>2025-05-19</td><td>martín.facturacion@supermarket.com</td></tr><tr><td>Daniela Ortiz</td><td>2023-01-21</td><td>2025-01-10</td><td>daniela.inventario@supermarket.com</td></tr><tr><td>Sara Correa</td><td>2023-04-07</td><td>2025-10-08</td><td>sara.rrhh@supermarket.com</td></tr><tr><td>Jorge Salinas</td><td>2023-04-17</td><td>2025-01-09</td><td>jorge.sistemas@supermarket.com</td></tr><tr><td>Lina Gutiérrez</td><td>2023-06-06</td><td>2025-02-15</td><td>lina.ventas@supermarket.com</td></tr>
+<tr><td>Camilo Ramírez</td><td>2021-01-01</td><td>2030-01-01</td><td>camilo.admin@supermarket.com</td></tr>
+<tr><td>Valentina Cardona</td><td>2022-03-10</td><td>2027-03-10</td><td>valentina.rrhh@supermarket.com</td></tr>
+<tr><td>Carlos Guzmán</td><td>2023-06-20</td><td>2026-06-20</td><td>cardona.turnos@supermarket.com</td></tr>
+
+            </tbody>
+        </table>
+    
+            <h1>Recursos Humanos</h1>
+            <table>
+                <thead><tr><th>Nombre</th><th>Fecha de Ingreso</th><th>Fin de Contrato</th><th>Correo Profesional</th></tr></thead>
+                <tbody>
+                    <tr><td>Ana Gómez</td><td>2023-01-10</td><td>2025-01-10</td><td>ana.recursos@supermarket.com</td></tr>
+                    <tr><td>Pedro Ríos</td><td>2022-06-01</td><td>2024-06-01</td><td>pedro.ventas@supermarket.com</td></tr>
+                    <tr><td>Lucía Torres</td><td>2023-03-15</td><td>2026-03-15</td><td>lucia.marketing@supermarket.com</td></tr>
+                    <tr><td>Juan Pérez</td><td>2021-12-01</td><td>2024-12-01</td><td>juan.bodega@supermarket.com</td></tr>
+                    <tr><td>María Díaz</td><td>2022-09-20</td><td>2025-09-20</td><td>maria.caja@supermarket.com</td></tr>
+                    <tr><td>Camilo Varela</td><td>2024-01-02</td><td>2026-01-02</td><td>camilo.tecnologia@supermarket.com</td></tr>
+                    <tr><td>Daniela Quintero</td><td>2023-04-08</td><td>2025-04-08</td><td>daniela.logistica@supermarket.com</td></tr>
+                    <tr><td>Santiago Muñoz</td><td>2022-11-11</td><td>2024-11-11</td><td>santiago.inventario@supermarket.com</td></tr>
+                    <tr><td>Valeria Ramírez</td><td>2021-08-15</td><td>2024-08-15</td><td>valeria.recursos@supermarket.com</td></tr>
+                    <tr><td>Felipe Castaño</td><td>2023-07-22</td><td>2025-07-22</td><td>felipe.sistemas@supermarket.com</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const productos = [
+            { nombre: "Crema Hidratante Facial", precio: 18000 },
+            { nombre: "Gel Corporal Refrescante", precio: 15000 },
+            { nombre: "Shampoo Revitalizante", precio: 20000 },
+            { nombre: "Jabón Artesanal", precio: 10000 },
+            { nombre: "Mascarilla Nutritiva", precio: 25000 },
+            { nombre: "Desodorante Natural", precio: 12000 },
+            { nombre: "Aceite Esencial de Lavanda", precio: 22000 },
+            { nombre: "Toallitas Húmedas", precio: 8000 },
+            { nombre: "Crema para Manos", precio: 17000 },
+            { nombre: "Protector Solar FPS50", precio: 29000 },
+            { nombre: "Tónico Facial", precio: 14000 },
+            { nombre: "Agua Micelar", precio: 16000 }
+        ];
+
+        function login() {
+            const user = document.getElementById("usuario").value;
+            const pass = document.getElementById("clave").value;
+
+            if (user === "camilo.admin@supermarket.com" && pass === "311338") {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("main-panel").style.display = "block";
+                document.getElementById("nav-admin").style.display = "block";
+                mostrarPanel("productos");
+                renderTabla();
+            } else {
+                alert("Credenciales incorrectas.");
+            }
+        }
+
+        function mostrarPanel(id) {
+            document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+            document.getElementById("panel-" + id).classList.add("active");
+        }
+
+        function renderTabla() {
+            const tbody = document.getElementById("admin-productos");
+            tbody.innerHTML = "";
+            productos.forEach((p, i) => {
+                const fila = document.createElement("tr");
+                fila.innerHTML = `
+                    <td><input type="text" value="${p.nombre}" id="nombre-${i}"></td>
+                    <td><input type="number" value="${p.precio}" id="precio-${i}"></td>
+                    <td><button onclick="guardar(${i})">Guardar</button></td>
+                `;
+                tbody.appendChild(fila);
+            });
+        }
+
+        function guardar(i) {
+            const nombre = document.getElementById("nombre-" + i).value;
+            const precio = parseFloat(document.getElementById("precio-" + i).value);
+            productos[i].nombre = nombre;
+            productos[i].precio = precio;
+            localStorage.setItem("productos", JSON.stringify(productos));
+            alert("Producto actualizado.");
+        }
+
+        if (!localStorage.getItem("productos")) {
+            localStorage.setItem("productos", JSON.stringify(productos));
+        }
+    </script>
+</body>
+</html>

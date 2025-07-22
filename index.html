@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super mercado Mundo express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="menu container">
+        <a href="#" class="logo">Mundo Express</a>
+        <input type="checkbox" id="menu" />
+        <label for="menu">
+            <img src="images/menu.png" class="menu-icono" alt="menu">
+        </label>
+        <nav class="navbar">
+            <ul>
+<li><a href="admin_con_login.html">Administradores</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="contacto.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+        <ul>
+            <li class="submenu">
+                <img id="img-carrito" src="images/car.svg" alt="carrito">
+                <div id="carrito">
+                    <table id="lista-carrito">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                            <td><a href="#" class="borrar-curso">X</a></td></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="header-content container">
+        <div class="header-txt">
+            <span>Bienvenido a Mundo express</span>
+            <h1>Tu bienestar es nuestra prioridad</h1>
+            <p>Descubre una selección exclusiva de productos de cuidado personal, salud y belleza pensados para ti.</p>
+            <div class="butons">
+                <a href="#productos" class="btn-1">Explorar</a>
+                <a href="#nosotros" class="btn-1">Sobre Nosotros</a>
+            </div>
+        </div>
+        <div class="header-img">
+            <img src="images/bag.png" alt="Bolsa de compras">
+        </div>
+    </div>
+</header>
+
+
+<section id="productos" class="container productos-seccion">
+    <h2>Nuestros Productos</h2>
+    <!-- Aquí podrías listar productos específicos en el futuro -->
+</section>
+
+<section id="ofertas" class="oferts container">
+    <div class="ofert-1 b1">
+        <div class="ofert-txt">
+            <h3 class="nombre-producto">Descuentos Especiales</h3>
+            <a href="#">Ver más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="images/s1.png" alt="">
+        </div>
+    </div>
+    <div class="ofert-1 b2">
+        <div class="ofert-txt">
+            <h3 class="nombre-producto">Combos de Cuidado</h3>
+            <a href="#">Ver más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="images/s2.png" alt="">
+        </div>
+    </div>
+    <div class="ofert-1 b3">
+        <div class="ofert-txt">
+            <h3 class="nombre-producto">Productos Naturales</h3>
+            <a href="#">Ver más</a>
+        </div>
+        <div class="ofert-img">
+            <img src="images/s3.png" alt="">
+        </div>
+    </div>
+</section>
+
+<main class="products container">
+    <h2>Nuestros Productos</h2>
+    <div class="box-container" id="lista-1">
+        <div class="box">
+            <img src="images/pr1.png" alt="Crema Hidratante Facial">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Crema Hidratante Facial</h3>
+                <p>Ideal para todo tipo de piel</p>
+                <p class="precio-producto">$18,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr2.png" alt="Gel Corporal Refrescante">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Gel Corporal Refrescante</h3>
+                <p>Con extractos naturales</p>
+                <p class="precio-producto">$15,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr3.png" alt="Shampoo Revitalizante">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Shampoo Revitalizante</h3>
+                <p>Libre de parabenos</p>
+                <p class="precio-producto">$20,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr4.png" alt="Jabón Artesanal">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Jabón Artesanal</h3>
+                <p>Con aceites esenciales</p>
+                <p class="precio-producto">$10,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="4">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr5.png" alt="Aceite Esencial Lavanda">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Aceite Esencial Lavanda</h3>
+                <p>Aromaterapia relajante</p>
+                <p class="precio-producto">$16,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="5">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr6.png" alt="Tónico Facial Herbal">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Tónico Facial Herbal</h3>
+                <p>Refresca y limpia</p>
+                <p class="precio-producto">$15,500</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="6">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr7.png" alt="Mascarilla Purificante">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Mascarilla Purificante</h3>
+                <p>Elimina impurezas</p>
+                <p class="precio-producto">$13,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="7">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr8.png" alt="Loción Corporal Natural">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Loción Corporal Natural</h3>
+                <p>Hidratación duradera</p>
+                <p class="precio-producto">$12,500</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="8">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr9.png" alt="Suero Facial Antiedad">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Suero Facial Antiedad</h3>
+                <p>Con vitamina C</p>
+                <p class="precio-producto">$17,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="9">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr10.png" alt="Protector Solar SPF50">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Protector Solar SPF50</h3>
+                <p>Protección avanzada</p>
+                <p class="precio-producto">$13,500</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="10">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr11.png" alt="Bálsamo Labial Natural">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Bálsamo Labial Natural</h3>
+                <p>Hidratación para labios</p>
+                <p class="precio-producto">$14,500</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="11">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <img src="images/pr12.png" alt="Crema Reparadora de Manos">
+            <div class="product-txt">
+                <h3 class="nombre-producto">Crema Reparadora de Manos</h3>
+                <p>Nutrición intensa</p>
+                <p class="precio-producto">$15,000</p>
+                <a href="#" class="agregar-carrito btn-3" data-id="12">Agregar al carrito</a>
+            </div>
+        </div>
+    
+        
+            </div>
+        </div>
+    </div>
+    <div class="btn-2" id="load-more">Cargar más</div>
+</main>
+
+<section class="testimonial container">
+    <span>Opiniones</span>
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonial-container">
+        <div class="testimonial-1">
+            <p>"Mundo Express me ha sorprendido con la calidad de sus productos. ¡Muy recomendados!"</p>
+            <img src="images/starts.png" alt="Estrellas">
+            <h4>Mariana Londoño</h4>
+        </div>
+        <div class="testimonial-1">
+            <p>"Excelente atención al cliente y envíos rápidos. Siempre compro aquí."</p>
+            <img src="images/starts.png" alt="Estrellas">
+            <h4>Juan Carlos Mejía</h4>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content container">
+        <div class="link">
+            <h3 class="nombre-producto">Mundo Express</h3>
+            <ul>
+                <li><a href="#">Quiénes somos</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </div>
+        <div class="link">
+            <h3 class="nombre-producto">Contacto</h3>
+            <ul>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Ubicación</a></li>
+                <li><a href="#">Soporte</a></li>
+            </ul>
+        </div>
+        <div class="link">
+            <h3 class="nombre-producto">Redes Sociales</h3>
+            <ul>
+                <li><a href="https://www.instagram.com/jc_ramirez8/" target="_blank">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+<section class="informacion container">
+    <h2>Información de Contacto</h2>
+    <p><strong>Dirección:</strong> Calle sur avenida bolivariana #34a 54 sur</p>
+    <h3 class="nombre-producto">Horario de Atención</h3>
+    <ul>
+        <li>Lunes: 8:00 am - 5:00 pm</li>
+        <li>Martes: 8:00 am - 5:00 pm</li>
+        <li>Miércoles: 8:00 am - 5:00 pm</li>
+        <li>Jueves: 8:00 am - 5:00 pm</li>
+        <li>Viernes: 8:00 am - 5:00 pm</li>
+        <li>Sábado: 8:00 am - 5:00 pm</li>
+        <li>Domingo: 8:00 am - 12:00 pm</li>
+    </ul>
+
+
+
+
+<section id="nosotros" class="container">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos Mundo Express, un supermercado comprometido con brindar productos de calidad, atención cercana y precios justos. Nuestra misión es mejorar tu experiencia de compra día a día.</p>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+    const contenedorProductos = document.querySelectorAll(".producto-dinamico");
+
+    if (productos.length > 0 && contenedorProductos.length > 0) {
+        contenedorProductos.forEach((el, i) => {
+            if (productos[i]) {
+                const nombre = el.querySelector(".nombre-producto");
+                const precio = el.querySelector(".precio-producto");
+                if (nombre) nombre.textContent = productos[i].nombre;
+                if (precio) precio.textContent = "$" + productos[i].precio;
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
