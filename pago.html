@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago - MundoExpress</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f3f5;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input, select {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">MundoExpress Pagos</div>
+    <h2>Finalizar Compra</h2>
+    <input type="text" placeholder="Nombre del titular" required>
+    <input type="text" placeholder="Número de tarjeta (ficticio)" required>
+    <input type="text" placeholder="Fecha de expiración (MM/AA)" required>
+    <input type="text" placeholder="CVV" required>
+    <select>
+      <option>Selecciona método de pago</option>
+      <option>Tarjeta de crédito</option>
+      <option>Tarjeta débito</option>
+      <option>PSE</option>
+      <option>Contra entrega</option>
+    </select>
+    <button onclick="pagar()">Pagar ahora</button>
+  </div>
+
+  <script>
+    function pagar() {
+      alert("¡Gracias por tu compra en MundoExpress! 🛒\nRecibirás tu pedido pronto.");
+      localStorage.removeItem("carrito");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión - MundoExpress</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0072ff;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      background-color: #0072ff;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fcc;
+    }
+
+    #register {
+      margin-top: 30px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    #register h3 {
+      color: #0072ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" placeholder="Correo electrónico" id="correo">
+    <input type="password" placeholder="Contraseña" id="clave">
+    <button onclick="login()">Entrar</button>
+
+    <div id="register">
+      <h3>¿No tienes cuenta?</h3>
+      <input type="text" placeholder="Nombre completo" id="nuevoNombre">
+      <input type="email" placeholder="Correo electrónico válido" id="nuevoCorreo">
+      <input type="password" placeholder="Contraseña" id="nuevaClave">
+      <button onclick="crearCuenta()">Crear Cuenta</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const correo = document.getElementById('correo').value;
+      const clave = document.getElementById('clave').value;
+      const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+      const existe = users.find(u => u.correo === correo && u.clave === clave);
+      if (existe) {
+        localStorage.setItem("usuarioNombre", existe.nombre);
+        window.location.href = "index.html";
+      } else {
+        alert("Credenciales inválidas");
+      }
+    }
+
+    function crearCuenta() {
+      const nombre = document.getElementById('nuevoNombre').value.trim();
+      const correo = document.getElementById('nuevoCorreo').value.trim();
+      const clave = document.getElementById('nuevaClave').value;
+      if (!nombre || !correo || !clave) {
+        alert("Todos los campos son obligatorios");
+        return;
+      }
+      const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+      users.push({ nombre, correo, clave });
+      localStorage.setItem("usuarios", JSON.stringify(users));
+      alert("Cuenta creada. Ahora puedes iniciar sesión.");
+    }
+  </script>
+</body>
+</html>

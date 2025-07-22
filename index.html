@@ -9,6 +9,46 @@
 </head>
 <body>
 
+<style>
+  #sesion-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+</style>
+<button id="sesion-btn">Sesión</button>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sesionBtn = document.getElementById('sesion-btn');
+    const nombreUsuario = localStorage.getItem('usuarioNombre');
+    function actualizarBoton() {
+      if (nombreUsuario) {
+        sesionBtn.textContent = "Cerrar sesión";
+      } else {
+        sesionBtn.textContent = "Iniciar sesión";
+      }
+    }
+    sesionBtn.addEventListener('click', () => {
+      if (localStorage.getItem('usuarioNombre')) {
+        localStorage.removeItem('usuarioNombre');
+        localStorage.removeItem('usuarios');
+        window.location.reload();
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+    actualizarBoton();
+  });
+</script>
+
+
 <header class="header">
     <div class="menu container">
         <a href="#" class="logo">Mundo Express</a>
@@ -22,25 +62,120 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#ofertas">Ofertas</a></li>
                 <li><a href="#productos">Productos</a></li>
-                <li><a href="contacto.html">Contáctanos</a></li>
+                <li><a href="contacto.html">Contáctanos</a>
+<!-- Barra de búsqueda con lupa expandible y sugerencias -->
+<style>
+  #search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    max-width: 100%;
+  }
+  #buscador {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  #buscador.visible {
+    width: 200px;
+    opacity: 1;
+  }
+  #sugerencias {
+    position: absolute;
+    top: 35px;
+    left: 40px;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+  }
+  #sugerencias div {
+    padding: 5px;
+    cursor: pointer;
+  }
+  #sugerencias div:hover {
+    background-color: #eee;
+  }
+
+  @media screen and (max-width: 600px) {
+    #search-container {
+      margin-left: 5px;
+      justify-content: flex-start;
+    }
+    #buscador.visible {
+      width: 150px;
+    }
+    #sugerencias {
+      width: 150px;
+      left: 35px;
+    }
+  }
+</style>
+<div id="search-container">
+  <button id="lupa" style="padding: 5px;">🔍</button>
+  <input type="text" id="buscador" placeholder="Buscar...">
+  <div id="sugerencias"></div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lupa = document.getElementById('lupa');
+    const buscador = document.getElementById('buscador');
+    const sugerencias = document.getElementById('sugerencias');
+    const productos = Array.from(document.querySelectorAll('.box'));
+
+    lupa.addEventListener('click', () => {
+      buscador.classList.toggle('visible');
+      buscador.focus();
+      if (buscador.classList.contains('visible')) {
+        sugerencias.style.display = 'block';
+      } else {
+        sugerencias.style.display = 'none';
+      }
+    });
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.toLowerCase();
+      sugerencias.innerHTML = '';
+      let matches = 0;
+      productos.forEach(producto => {
+        const titulo = producto.querySelector('h3').textContent.toLowerCase();
+        if (titulo.includes(texto)) {
+          matches++;
+          const item = document.createElement('div');
+          item.textContent = producto.querySelector('h3').textContent;
+          item.addEventListener('click', () => {
+            buscador.value = item.textContent;
+            sugerencias.style.display = 'none';
+            filtrarProductos(item.textContent.toLowerCase());
+          });
+          sugerencias.appendChild(item);
+        }
+      });
+      sugerencias.style.display = matches > 0 ? 'block' : 'none';
+      filtrarProductos(texto);
+    });
+
+    function filtrarProductos(texto) {
+      productos.forEach(producto => {
+        const titulo = producto.querySelector('h3').textContent.toLowerCase();
+        producto.style.display = titulo.includes(texto) ? 'block' : 'none';
+      });
+    }
+  });
+</script>
+</li>
             </ul>
         </nav>
         <ul>
             <li class="submenu">
                 <img id="img-carrito" src="images/car.svg" alt="carrito">
-                <div id="carrito">
-                    <table id="lista-carrito">
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                            <td><a href="#" class="borrar-curso">X</a></td></tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                    <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                </div>
+                
             </li>
         </ul>
     </div>
@@ -276,7 +411,7 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+
 
 <section class="informacion container">
     <h2>Información de Contacto</h2>
@@ -319,5 +454,129 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+      <div style="text-align:center; margin-top:40px;">
+        <button id="comprar-btn" style="padding: 10px 20px;">Comprar</button>
+      </div>
+    
+<!-- Carrito en la parte superior derecha -->
+<style>
+  #carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid #aaa;
+    padding: 10px;
+    max-width: 200px;
+    z-index: 999;
+  }
+  #carrito h4 {
+    margin: 0 0 10px 0;
+  }
+  #lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+
+
+<!-- Carrito Profesional -->
+<style>
+  #carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 300px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 999;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  #lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #lista-carrito li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+  }
+  .carrito-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  .carrito-item-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .carrito-item-info span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .eliminar-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  #carrito-buttons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #carrito-buttons button {
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  #vaciar-btn {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  #pagar-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  #cerrar-sesion-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+
+
+
+
+
+</div>
+
+<script src="script.js"></script>
 </body>
+    
 </html>
