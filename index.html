@@ -4,24 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super mercado Mundo express</title>
+    <title>Knovoxx Market</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Carrito e Inicio de sesión -->
+<div style="position: absolute; top: 10px; right: 10px;">
+    <button onclick="goToCart()" style="margin-right: 10px;">🛒 Carrito</button>
+    <button onclick="goToCheckout()">Comprar</button>
+</div>
 
-<style>
-  #sesion-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-  }
+
 </style>
 <button id="sesion-btn">Sesión</button>
 <script>
@@ -51,14 +44,14 @@
 
 <header class="header">
     <div class="menu container">
-        <a href="#" class="logo">Mundo Express</a>
+        <a href="#" class="logo">Knovoxx Market</a>
         <input type="checkbox" id="menu" />
         <label for="menu">
             <img src="images/menu.png" class="menu-icono" alt="menu">
         </label>
         <nav class="navbar">
             <ul>
-<li><a href="admin_con_login.html">Administradores</a></li>
+<li><a href="admin.html">Administradores</a></li>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#ofertas">Ofertas</a></li>
                 <li><a href="#productos">Productos</a></li>
@@ -173,18 +166,15 @@
             </ul>
         </nav>
         <ul>
-            <li class="submenu">
-                <img id="img-carrito" src="images/car.svg" alt="carrito">
-                
-            </li>
+            
         </ul>
     </div>
 
     <div class="header-content container">
         <div class="header-txt">
-            <span>Bienvenido a Mundo express</span>
+            <span>Bienvenido a Knovoxx Market</span>
             <h1>Tu bienestar es nuestra prioridad</h1>
-            <p>Descubre una selección exclusiva de productos de cuidado personal, salud y belleza pensados para ti.</p>
+            <p>Descubre una selección exclusiva de productos altamente saludables con excelentes precios.</p>
             <div class="butons">
                 <a href="#productos" class="btn-1">Explorar</a>
                 <a href="#nosotros" class="btn-1">Sobre Nosotros</a>
@@ -214,7 +204,7 @@
     </div>
     <div class="ofert-1 b2">
         <div class="ofert-txt">
-            <h3 class="nombre-producto">Combos de Cuidado</h3>
+            <h3 class="nombre-producto">Combos exclusivos</h3>
             <a href="#">Ver más</a>
         </div>
         <div class="ofert-img">
@@ -223,8 +213,8 @@
     </div>
     <div class="ofert-1 b3">
         <div class="ofert-txt">
-            <h3 class="nombre-producto">Productos Naturales</h3>
-            <a href="#">Ver más</a>
+            <h3 class="nombre-producto">Productos</h3>
+            <a href="#productos">Ver más</a>
         </div>
         <div class="ofert-img">
             <img src="images/s3.png" alt="">
@@ -236,19 +226,19 @@
     <h2>Nuestros Productos</h2>
     <div class="box-container" id="lista-1">
         <div class="box">
-            <img src="images/pr1.png" alt="Crema Hidratante Facial">
+            <img src="images/pr1.png" alt="Leche almendras sabor natural">
             <div class="product-txt">
-                <h3 class="nombre-producto">Crema Hidratante Facial</h3>
-                <p>Ideal para todo tipo de piel</p>
+                <h3 class="nombre-producto">Leches almendras sabor natural</h3>
+                <p>Ideal para personas con alto deficit de grasa</p>
                 <p class="precio-producto">$18,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr2.png" alt="Gel Corporal Refrescante">
+            <img src="images/pr2.png" alt="Liosa sabor fresa">
             <div class="product-txt">
-                <h3 class="nombre-producto">Gel Corporal Refrescante</h3>
+                <h3 class="nombre-producto">Liosa Sabor fresa</h3>
                 <p>Con extractos naturales</p>
                 <p class="precio-producto">$15,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
@@ -256,9 +246,9 @@
         </div>
     
         <div class="box">
-            <img src="images/pr3.png" alt="Shampoo Revitalizante">
+            <img src="images/pr3.png" alt="Larin sabor chocolate">
             <div class="product-txt">
-                <h3 class="nombre-producto">Shampoo Revitalizante</h3>
+                <h3 class="nombre-producto">Larin sabor chocolate</h3>
                 <p>Libre de parabenos</p>
                 <p class="precio-producto">$20,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
@@ -266,9 +256,9 @@
         </div>
     
         <div class="box">
-            <img src="images/pr4.png" alt="Jabón Artesanal">
+            <img src="images/pr4.png" alt="Leche almendras sabor Uva">
             <div class="product-txt">
-                <h3 class="nombre-producto">Jabón Artesanal</h3>
+                <h3 class="nombre-producto">Leche almendras sabor Uva</h3>
                 <p>Con aceites esenciales</p>
                 <p class="precio-producto">$10,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="4">Agregar al carrito</a>
@@ -276,39 +266,39 @@
         </div>
     
         <div class="box">
-            <img src="images/pr5.png" alt="Aceite Esencial Lavanda">
+            <img src="images/pr5.png" alt="Stick Cero">
             <div class="product-txt">
-                <h3 class="nombre-producto">Aceite Esencial Lavanda</h3>
-                <p>Aromaterapia relajante</p>
+                <h3 class="nombre-producto">Stick Cero</h3>
+                <p>relajante</p>
                 <p class="precio-producto">$16,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="5">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr6.png" alt="Tónico Facial Herbal">
+            <img src="images/pr6.png" alt="Leggy Chip">
             <div class="product-txt">
-                <h3 class="nombre-producto">Tónico Facial Herbal</h3>
-                <p>Refresca y limpia</p>
+                <h3 class="nombre-producto">Leggy Chip</h3>
+                <p>Refrescante</p>
                 <p class="precio-producto">$15,500</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="6">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr7.png" alt="Mascarilla Purificante">
+            <img src="images/pr7.png" alt="Gamesa Caramelo">
             <div class="product-txt">
-                <h3 class="nombre-producto">Mascarilla Purificante</h3>
-                <p>Elimina impurezas</p>
+                <h3 class="nombre-producto">  Gamesa caramelo</h3>
+                <p>Rico en nutricion</p>
                 <p class="precio-producto">$13,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="7">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr8.png" alt="Loción Corporal Natural">
+            <img src="images/pr8.png" alt="Leche santa clara">
             <div class="product-txt">
-                <h3 class="nombre-producto">Loción Corporal Natural</h3>
+                <h3 class="nombre-producto">Leche santa clara</h3>
                 <p>Hidratación duradera</p>
                 <p class="precio-producto">$12,500</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="8">Agregar al carrito</a>
@@ -316,9 +306,9 @@
         </div>
     
         <div class="box">
-            <img src="images/pr9.png" alt="Suero Facial Antiedad">
+            <img src="images/pr9.png" alt="Arandanos Semi amarago">
             <div class="product-txt">
-                <h3 class="nombre-producto">Suero Facial Antiedad</h3>
+                <h3 class="nombre-producto">Arandanos Semi amarago</h3>
                 <p>Con vitamina C</p>
                 <p class="precio-producto">$17,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="9">Agregar al carrito</a>
@@ -326,30 +316,30 @@
         </div>
     
         <div class="box">
-            <img src="images/pr10.png" alt="Protector Solar SPF50">
+            <img src="images/pr10.png" alt="Mazapan">
             <div class="product-txt">
-                <h3 class="nombre-producto">Protector Solar SPF50</h3>
-                <p>Protección avanzada</p>
+                <h3 class="nombre-producto">Mazapan</h3>
+                <p>Alto en Azucares</p>
                 <p class="precio-producto">$13,500</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="10">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr11.png" alt="Bálsamo Labial Natural">
+            <img src="images/pr11.png" alt="Maiz Dorado">
             <div class="product-txt">
-                <h3 class="nombre-producto">Bálsamo Labial Natural</h3>
-                <p>Hidratación para labios</p>
+                <h3 class="nombre-producto">Maiz dorado</h3>
+                <p>Alto en proteinas</p>
                 <p class="precio-producto">$14,500</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="11">Agregar al carrito</a>
             </div>
         </div>
     
         <div class="box">
-            <img src="images/pr12.png" alt="Crema Reparadora de Manos">
+            <img src="images/pr12.png" alt="Pltano Maduro">
             <div class="product-txt">
-                <h3 class="nombre-producto">Crema Reparadora de Manos</h3>
-                <p>Nutrición intensa</p>
+                <h3 class="nombre-producto">platano Maduro</h3>
+                <p>Nutricion</p>
                 <p class="precio-producto">$15,000</p>
                 <a href="#" class="agregar-carrito btn-3" data-id="12">Agregar al carrito</a>
             </div>
@@ -367,7 +357,7 @@
     <h2>Lo que dicen nuestros clientes</h2>
     <div class="testimonial-container">
         <div class="testimonial-1">
-            <p>"Mundo Express me ha sorprendido con la calidad de sus productos. ¡Muy recomendados!"</p>
+            <p>"Knovoxx Market me ha sorprendido con la calidad de sus productos. ¡Muy recomendados!"</p>
             <img src="images/starts.png" alt="Estrellas">
             <h4>Mariana Londoño</h4>
         </div>
@@ -379,43 +369,9 @@
     </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-content container">
-        <div class="link">
-            <h3 class="nombre-producto">Mundo Express</h3>
-            <ul>
-                <li><a href="#">Quiénes somos</a></li>
-                <li><a href="#">Política de privacidad</a></li>
-                <li><a href="#">Términos y condiciones</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3 class="nombre-producto">Contacto</h3>
-            <ul>
-                <li><a href="#">WhatsApp</a></li>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Ubicación</a></li>
-                <li><a href="#">Soporte</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3 class="nombre-producto">Redes Sociales</h3>
-            <ul>
-                <li><a href="https://www.instagram.com/jc_ramirez8/" target="_blank">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">TikTok</a></li>
-                <li><a href="#">YouTube</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-
-
 <section class="informacion container">
     <h2>Información de Contacto</h2>
-    <p><strong>Dirección:</strong> Calle sur avenida bolivariana #34a 54 sur</p>
+    <p><strong>Dirección:</strong> Medellin, Antioquia, Calle sur avenida bolivariana #34a 54 sur</p>
     <h3 class="nombre-producto">Horario de Atención</h3>
     <ul>
         <li>Lunes: 8:00 am - 5:00 pm</li>
@@ -432,7 +388,7 @@
 
 <section id="nosotros" class="container">
     <h2>Sobre Nosotros</h2>
-    <p>Somos Mundo Express, un supermercado comprometido con brindar productos de calidad, atención cercana y precios justos. Nuestra misión es mejorar tu experiencia de compra día a día.</p>
+    <p>Knovoxx Market, un supermercado comprometido con ofrecer productos de alta calidad, atención cercana y precios justos. Nuestra misión es mejorar tu experiencia de compra cada día, brindándote artículos con certificación del INVIMA y altos estándares de calidad. Nos dedicamos a elevar continuamente la excelencia de nuestros productos para garantizar tu bienestar y satisfacción.</p>
 </section>
 
 
@@ -453,33 +409,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 </script>
-
-
-      <div style="text-align:center; margin-top:40px;">
-        <button id="comprar-btn" style="padding: 10px 20px;">Comprar</button>
-      </div>
-    
-<!-- Carrito en la parte superior derecha -->
-<style>
-  #carrito {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    border: 1px solid #aaa;
-    padding: 10px;
-    max-width: 200px;
-    z-index: 999;
-  }
-  #carrito h4 {
-    margin: 0 0 10px 0;
-  }
-  #lista-carrito {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-</style>
 
 
 
@@ -570,13 +499,120 @@ document.addEventListener("DOMContentLoaded", () => {
 </style>
 
 
-
-
-
-
 </div>
 
 <script src="script.js"></script>
+
+<footer style="background-color: #014421; color: #f1f1f1; padding: 60px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="margin-bottom: 16px; font-weight: 600;">Knovoxx Market</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="#nosotros" target="_blank" style="color: #ccc; text-decoration: none;">Quiénes somos</a></li>
+        <li><a href="politicadeprivacidad.html" target="_blank" style="color: #ccc; text-decoration: none;">Política de privacidad</a></li>
+        <li><a href="terminos-y-condiciones.html"  target="_blank" style="color: #ccc; text-decoration: none;">Términos y condiciones</a></li>
+        <li><a href="contacto.html" target="_blank" style="color: #ccc; text-decoration: none;">Ayuda</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="margin-bottom: 16px; font-weight: 600;">Contacto</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="#" style="color: #ccc; text-decoration: none;">WhatsApp</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Email</a></li>
+        <li><a href="https://www.google.com/maps/search/avenida+bolivariana/@6.2367626,-75.5975561,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #ccc; text-decoration: none;">Ubicación</a></li>
+        <li><a href="contacto.html" target="_blank" style="color: #ccc; text-decoration: none;">Soporte</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="margin-bottom: 16px; font-weight: 600;">Redes Sociales</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="https://www.instagram.com/jc_ramirez8/" target="_blank" style="color: #ccc; text-decoration: none;">Instagram</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Facebook</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">TikTok</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">YouTube</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="margin-bottom: 16px; font-weight: 600;">Dudas y Soporte</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="mailto:camilo.ramirez@knovoxx.xyz" style="color: #ccc; text-decoration: none;">camilo.ramirez@knovoxx.xyz</a></li>
+        <li><a href="mailto:contacto@knovoxx.xyz" style="color: #ccc; text-decoration: none;">contacto@knovoxx.xyz</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #999;">
+    &copy; 2025 Knovoxx Market — Todos los derechos reservados.
+  </div>
+</footer>
+
+<!-- Banner de cookies estilo Knovoxx -->
+<div id="cookie-banner" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #43a047;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    z-index: 9999;
+    display: none;
+">
+    🍪 Usamos cookies para mejorar tu experiencia en Knovoxx Supermarket. 
+    <a href="politicadeprivacidad.html" style="color: #c8e6c9; text-decoration: underline;">Lee nuestra política</a>.
+    <button onclick="aceptarCookies()" style="
+        margin-left: 15px;
+        padding: 8px 15px;
+        background-color: white;
+        color: #2e7d32;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    ">Aceptar</button>
+</div>
+
+<script>
+function setCookie(nombre, valor, dias) {
+    const fecha = new Date();
+    fecha.setTime(fecha.getTime() + (dias * 24 * 60 * 60 * 1000));
+    document.cookie = nombre + "=" + valor + "; expires=" + fecha.toUTCString() + "; path=/";
+}
+
+function getCookie(nombre) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const c = cookies[i].trim();
+        if (c.indexOf(nombre + "=") === 0) {
+            return c.substring(nombre.length + 1);
+        }
+    }
+    return "";
+}
+
+function aceptarCookies() {
+    setCookie("cookiesAceptadas", "true", 365);
+    document.getElementById("cookie-banner").style.display = "none";
+}
+
+window.onload = function() {
+    if (!getCookie("cookiesAceptadas")) {
+        document.getElementById("cookie-banner").style.display = "block";
+    }
+};
+</script>
+
+
+
+
 </body>
     
 </html>
